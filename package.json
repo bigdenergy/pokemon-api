@@ -1,0 +1,22 @@
+{
+  "name": "node_tutoriel",
+  "version": "1.0.0",
+  "description": "a Node.js tutorial with a REST API",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "valentin hardy",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mariadb": "^3.2.2",
+    "sequelize": "^6.33.0"
+  },
+  "devDependencies": {
+    "body-parser": "^1.20.2",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.0.1",
+    "serve-favicon": "^2.5.0"
+  }
+}
