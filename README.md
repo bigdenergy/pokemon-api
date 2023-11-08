@@ -66,7 +66,6 @@ Retrieve information about a specific Pokémon by its ID.
 - **Parameters**:
   - `id` (integer): The ID of the Pokémon you want to retrieve.
 
-// TODO
 ### Get Pokémon by Name
 
 Retrieve information about a specific Pokémon by its name.
@@ -76,7 +75,6 @@ Retrieve information about a specific Pokémon by its name.
 - **Parameters**:
   - `name` (string): The name of the Pokémon you want to retrieve.
 
-// TODO
 ### Get Pokémon Types
 
 Retrieve a list of all Pokémon types.
@@ -100,19 +98,19 @@ Here are some example requests you can make to the Pokémon API:
   ```
   GET /pokemons/25
   ```
-// TODO
+
 - Get information about Charizard by name:
 
   ```
   GET /pokemons/charizard
   ```
-// TODO
+
 - Get a list of all Pokémon types:
 
   ```
   GET /types
   ```
-// TODO
+
 - Get a list of all Pokémon abilities:
 
   ```
