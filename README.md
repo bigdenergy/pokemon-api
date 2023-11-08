@@ -77,7 +77,10 @@ Retrieve information about a specific Pokémon by its name.
 
 Retrieve a list of all Pokémon by types.
 
-- **Endpoint**: `/pokemons/types/:type`- **Method**: GET
+- **Endpoint**: `/pokemons/types/:type`
+- - **Method**: GET
+- **Parameters**:
+  - `type` (string): The type of the Pokémons you want to retrieve.
 
 ## Examples
 
@@ -95,7 +98,7 @@ Here are some example requests you can make to the Pokémon API:
   GET /pokemons/charizard
   ```
 
-  - Get Pokemons by type
+- Get Pokemons by type
 
   ```
   GET /pokemons/types/poison
