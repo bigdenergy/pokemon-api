@@ -80,13 +80,6 @@ Retrieve a list of all Pokémon types.
 - **Endpoint**: `/types`
 - **Method**: GET
 
-### Get Pokémon Abilities
-
-Retrieve a list of all Pokémon abilities.
-
-- **Endpoint**: `/abilities`
-- **Method**: GET
-
 ## Examples
 
 Here are some example requests you can make to the Pokémon API:
