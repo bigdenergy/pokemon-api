@@ -1,5 +1,3 @@
-Creating a README for a Pokémon API in Node.js is a great way to document your project and make it easy for others to understand how to use it. Here's a template you can use as a starting point for your README:
-
 # Pokémon API in Node.js
 
 This is a simple Pokémon API built using Node.js. It provides information about various Pokémon, including their names, types, abilities, and more. You can use this API to fetch Pokémon data for your applications or projects.
