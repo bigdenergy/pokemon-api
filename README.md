@@ -68,23 +68,22 @@ Retrieve information about a specific Pokémon by its ID.
 
 Retrieve information about a specific Pokémon by its name.
 
-- **Endpoint**: `/pokemon/:name`
+- **Endpoint**: `/pokemons/:name`
 - **Method**: GET
 - **Parameters**:
   - `name` (string): The name of the Pokémon you want to retrieve.
 
 ### Get Pokémon Types
 
-Retrieve a list of all Pokémon types.
+Retrieve a list of all Pokémon by types.
 
-- **Endpoint**: `/types`
-- **Method**: GET
+- **Endpoint**: `/pokemons/types/:name`- **Method**: GET
 
 ## Examples
 
 Here are some example requests you can make to the Pokémon API:
 
-- Get information about Pikachu by ID:
+- Get information about Pokemon by ID:
 
   ```
   GET /pokemons/25
@@ -94,18 +93,6 @@ Here are some example requests you can make to the Pokémon API:
 
   ```
   GET /pokemons/charizard
-  ```
-
-- Get a list of all Pokémon types:
-
-  ```
-  GET /types
-  ```
-
-- Get a list of all Pokémon abilities:
-
-  ```
-  GET /abilities
   ```
 
 ## Contributing
