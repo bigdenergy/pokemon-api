@@ -1,6 +1,6 @@
-const { Pokemon } = require('../db/sequelize')
+const { Pokemon } = require('../../db/sequelize')
 const { ValidationError } = require('sequelize')
-const auth = require('../auth/auth')
+const auth = require('../../auth/auth')
 
 module.exports = (app) => {
   app.put('/api/pokemons/:id', auth, (req, res) => {
@@ -14,7 +14,7 @@ module.exports = (app) => {
             const message = `Pokemon ${pokemon.name} doesn't exist.`
             return res.status(400).json({ message, data: error })
           }
-          const message = `Pokemon successfully ${pokemon.name} updated!`
+          const message = ` ${pokemon.name} updated!`
           res.json({ message, data: pokemon })
         })
       })

@@ -1,9 +1,9 @@
-const { User } = require('../db/sequelize');
+const { User } = require('../../db/sequelize');
 const bcrypt = require('bcrypt');
-const private_key = require('../auth/private_key');
+const { ValidationError } = require('sequelize')
 
 module.exports = (app) => {
-  app.post('/api/user', (req, res) => {
+  app.post('/api/users', (req, res) => {
     console.log('Creating a user...');
     bcrypt.hash(req.body.password, 10) 
       .then(hash => {
@@ -16,8 +16,12 @@ module.exports = (app) => {
           res.status(201).json({ message, data: user });
         })
         .catch(error => {
-          const message = ` ${req.body.username}, your account couldn't be created. Please try again later.`;
-          res.status(500).json({ message, data: error });
+          if (error instanceof ValidationError) {
+            return res.status(400).json({ message: error.message, data: error })
+          }
+          if (error instanceof UniqueConstraintError) {
+            return res.status(400).json({ message: error.message, data: error })
+          }
         });
       })
       .catch(error => {

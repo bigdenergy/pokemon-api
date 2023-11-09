@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
       unique: {
-        msg: "Username is already take."
+        msg: "Username already found. Please try with another username."
       },
       validate: {
         notEmpty: { msg: "Username cannot be empty." },
@@ -18,8 +18,10 @@ module.exports = (sequelize, DataTypes) => {
     },
     password: {
       type: DataTypes.STRING(64),
+      allowNull: false,
       validate: {
-        is: /^[0-9a-f]{64}$/i
+        notEmpty: { msg: "Password cannot be empty." },
+        notNull: { msg: "Password is a required propriety." }
       }
     }
   })
