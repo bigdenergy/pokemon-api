@@ -22,13 +22,19 @@ require('./src/routes/createPokemon')(app)
 // Read
 require('./src/routes/findAllPokemons')(app)
 require('./src/routes/findPokemonsByPk')(app)
-require('./src/routes/findPokemonsByTypes')(app)
 
 // Update
 require('./src/routes/updatePokemon')(app)
 
 // Delete
 require('./src/routes/deletePokemon')(app)
+
+// Create User
+require('./src/routes/createUser')(app)
+
+// Login
+require('./src/routes/login')(app)
+
 
 // Error 404 management
 app.use(({res}) => {

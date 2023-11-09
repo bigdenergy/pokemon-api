@@ -1,43 +1,59 @@
-const { Sequelize, DataTypes } = require('sequelize')
+const { Sequelize, DataTypes } = require('sequelize');
+const bcrypt = require('bcrypt');
+const PokemonModel = require('../models/pokemon');
+const UserModel = require('../models/user');
+const pokemons = require('./mock-pokemon');
+const private_key = require('../auth/private_key');
 
-const PokemonModel = require('../models/pokemon')
-//const UserModel = require('../models/user')
+const sequelize = new Sequelize('pokedex', 'root', '', {
+  host: '127.0.0.1',
+  dialect: 'mariadb',
+  dialectOptions: {
+    timezone: 'Etc/GMT-2',
+  },
+  logging: false,
+});
 
-const pokemons = require('./mock-pokemon')
+const Pokemon = PokemonModel(sequelize, DataTypes);
+const User = UserModel(sequelize, DataTypes);
 
+const initDb = async () => {
+  try {
+    await sequelize.sync({ force: true });
+    console.log('Initializing the database...');
 
-  sequelize = new Sequelize('pokedex', 'root', '', {
-    host: '127.0.0.1',
-    dialect: 'mariadb',
-    dialectOptions: {
-      timezone: 'Etc/GMT-2',
-    },
-    logging: false 
-  })
-  
-const Pokemon = PokemonModel(sequelize, DataTypes)
-//const User = UserModel(sequelize, DataTypes)
-
-const initDb = () => {
-  return sequelize.sync({force: true})
-  .then(async () => {
     for (const pokemon of pokemons) {
       const existingPokemon = await Pokemon.findOne({ where: { name: pokemon.name } });
       if (!existingPokemon) {
-        await Pokemon.create({ 
+        // Create Pokemon using data from mock-pokemon.js
+        await Pokemon.create({
           name: pokemon.name,
-          hp: pokemon.hp, 
+          hp: pokemon.hp,
           cp: pokemon.cp,
           picture: pokemon.picture,
-          types: pokemon.types
-        })
+          types: pokemon.types,
+        });
       }
     }
-    console.log('Database successfully initialized!')
-  });
-}
 
+    // Hash the private_key for user password
+    const hashedPrivateKey = await bcrypt.hash(private_key, 10);
 
-module.exports = { 
-  initDb, Pokemon, //User
-}
+    // Create a User
+    await User.create({
+      username: 'pikachu',
+      password: hashedPrivateKey,
+    });
+
+    console.log('Database successfully initialized!');
+
+  } catch (error) {
+    console.error('Error initializing the database:', error);
+  }
+};
+
+module.exports = {
+  initDb,
+  Pokemon,
+  User,
+};

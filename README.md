@@ -1,6 +1,6 @@
-# Pokémon API in Node.js
+# Pokemon API in Node.js
 
-This is a simple Pokémon API built using Node.js. It provides information about various Pokémon, including their names, types, abilities, and more. You can use this API to fetch Pokémon data for your applications or projects.
+This is a simple Pokemon API built using Node.js. It provides information about various Pokemon, including their names, types, abilities, and more. You can use this API to fetch Pokemon data for your applications or projects.
 
 ## Table of Contents
 
@@ -17,7 +17,7 @@ This is a simple Pokémon API built using Node.js. It provides information about
 
 ### Prerequisites
 
-Before you start using the Pokémon API, make sure you have the following software installed:
+Before you start using the Pokemon API, make sure you have the following software installed:
 
 - Node.js: Download and install Node.js from [nodejs.org](https://nodejs.org/).
 
@@ -47,44 +47,45 @@ Before you start using the Pokémon API, make sure you have the following softwa
    npm start
    ```
 
-The Pokémon API server should now be running on `http://localhost:3000`.
+The Pokemon API server should now be running on `http://localhost:3000`.
 
 ## Usage
 
-To use the Pokémon API, you can make HTTP requests to the various endpoints provided by the server. The API endpoints are documented below.
+To use the Pokemon API, you can make HTTP requests to the various endpoints provided by the server. The API endpoints are documented below.
 
 ## API Endpoints
 
-### Get Pokémon by ID
+### Get all Pokemons
 
-Retrieve information about a specific Pokémon by its ID.
+Retrieve information about all Pokemons.
+
+- **Endpoint**: `/pokemons/`
+- **Method**: GET
+- **Parameters**:
+  - `id` (integer): The ID of the Pokemon you want to retrieve.
+
+### Get all Pokemons
+
+Retrieve information about a specific Pokemon by its name.
+
+- **Endpoint**: `/pokemons?name=string`
+- **Method**: GET
+- **Parameters**:
+  - `name` (string): The name of the Pokemon you want to retrieve.
+
+### Get Pokemon by ID
+
+Retrieve information about a specific Pokemon by its ID.
 
 - **Endpoint**: `/pokemon/:id`
 - **Method**: GET
 - **Parameters**:
-  - `id` (integer): The ID of the Pokémon you want to retrieve.
+  - `id` (integer): The ID of the Pokemon you want to retrieve.
 
-### Get Pokémon by Name
-
-Retrieve information about a specific Pokémon by its name.
-
-- **Endpoint**: `/pokemons/:name`
-- **Method**: GET
-- **Parameters**:
-  - `name` (string): The name of the Pokémon you want to retrieve.
-
-### Get Pokémon Types
-
-Retrieve a list of all Pokémon by types.
-
-- **Endpoint**: `/pokemons/types/:type`
-- - **Method**: GET
-- **Parameters**:
-  - `type` (string): The type of the Pokémons you want to retrieve.
 
 ## Examples
 
-Here are some example requests you can make to the Pokémon API:
+Here are some example requests you can make to the Pokemon API:
 
 - Get information about Pokemon by ID:
 
